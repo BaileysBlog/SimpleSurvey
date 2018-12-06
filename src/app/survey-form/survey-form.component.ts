@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IsNumberValidator } from '../is-number-validator';
+import { IsNumber } from '../is-number-validator';
 
 @Component({
   selector: 'app-survey-form',
@@ -9,9 +9,9 @@ import { IsNumberValidator } from '../is-number-validator';
 })
 export class SurveyFormComponent {
   surveyForm = this.fb.group({
-    studyHours: [null, Validators.compose([Validators.required, Validators.min(0), IsNumberValidator])],
-    currentYear: [null, Validators.compose([Validators.required, Validators.min(0), IsNumberValidator])],
-    creditCount: [null, Validators.compose([Validators.required, Validators.min(0), IsNumberValidator])],
+    studyHours: [null, Validators.compose([Validators.required, Validators.min(0), IsNumber])],
+    currentYear: [null, Validators.compose([Validators.required, Validators.min(0), IsNumber])],
+    creditCount: [null, Validators.compose([Validators.required, Validators.min(0), IsNumber])],
     gender: [null],
     ageRange: [null]
   });
