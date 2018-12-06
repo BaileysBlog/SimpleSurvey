@@ -1,0 +1,77 @@
+<form [formGroup]="surveyForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Study Time Survey</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Study Hours" formControlName="studyHours">
+            <mat-error *ngIf="surveyForm.controls['studyHours'].hasError('required')">
+              Study Hours per Week is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="surveyForm.controls['studyHours'].hasError('min')">
+              Study Hours per Week isn't <strong>> 0</strong>
+            </mat-error>
+            <mat-error *ngIf="surveyForm.controls['studyHours'].hasError('isNumber')">
+              Study Hours per Week isn't <strong>in number format</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Credit Count" formControlName="creditCount">
+            <mat-error *ngIf="surveyForm.controls['creditCount'].hasError('required')">
+              Credit Count is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="surveyForm.controls['creditCount'].hasError('min')">
+                Credit Count isn't <strong>> 0</strong>
+            </mat-error>
+            <mat-error *ngIf="surveyForm.controls['creditCount'].hasError('isNumber')">
+                Credit Count isn't <strong>in number format</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Current Year" formControlName="currentYear">
+            <mat-error *ngIf="surveyForm.controls['currentYear'].hasError('required')">
+                Current Year is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="surveyForm.controls['currentYear'].hasError('min')">
+                Current Year isn't <strong>> 0</strong>
+            </mat-error>
+            <mat-error *ngIf="surveyForm.controls['currentYear'].hasError('isNumber')">
+                Current Year isn't <strong>in number format</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Gender" formControlName="gender">
+              <mat-option *ngFor="let data of genders" [value]="data.id">
+                {{ data.option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Age Range" formControlName="ageRange">
+              <mat-option *ngFor="let data of ages" [value]="data.id">
+                {{ data.option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="secondary" type="reset" (click)="onReset()">Clear</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
