@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Study Hours" formControlName="studyHours">
+            <input matInput autofocus placeholder="Study Hours" formControlName="studyHours">
             <mat-error *ngIf="surveyForm.controls['studyHours'].hasError('required')">
               Study Hours per Week is <strong>required</strong>
             </mat-error>
@@ -61,7 +61,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <mat-select placeholder="Age Range" formControlName="ageRange">
-              <mat-option *ngFor="let data of ages" [value]="data.id">
+              <mat-option *ngFor="let data of ages" [value]="data">
                 {{ data.option }}
               </mat-option>
             </mat-select>
