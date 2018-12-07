@@ -25,8 +25,9 @@ export class SurveyFormComponent {
   ages = [
     {id: 1, option:'<16'},
     {id: 2, option:'16-20'},
-    {id: 3, option:'21-26'},
-    {id: 4, option:'>26'}
+    {id: 3, option:'21-25'},
+    {id: 4, option:'26-30'},
+    {id: 5, option:'>31'}
   ];
 
   constructor(private fb: FormBuilder) {}

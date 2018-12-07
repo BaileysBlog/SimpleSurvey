@@ -70,7 +70,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="surveyForm.invalid">Submit</button>
       <button mat-raised-button color="secondary" type="reset" (click)="onReset()">Clear</button>
     </mat-card-actions>
   </mat-card>
